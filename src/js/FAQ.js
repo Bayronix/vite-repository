@@ -1,27 +1,30 @@
 import Accordion from 'accordion-js';
 import 'accordion-js/dist/accordion.min.css';
 
-// Default options
-new Accordion('.container-first');
-
-// User options
-new Accordion('.container-second', {
+new Accordion('.accordion-container', {
   duration: 400,
   showMultiple: true,
-  onOpen: function (currentElement) {
-    console.log(currentElement);
+  controlElement: '.faq-question',
+  removeButton: true,
+  callbacks: {
+    onOpen: function (section) {
+      console.log('Opened section:', section);
+    },
+    onClose: function (section) {
+      console.log('Closed section:', section);
+    },
   },
 });
 
-// Define several accordions with the same options (pass an array with selectors)
-new Accordion(['.container-first', '.container-second'], {});
+document.querySelectorAll('.ac-trigger').forEach(trigger => {
+  trigger.addEventListener('click', event => {
+    document.querySelectorAll('.ac-header').forEach(header => {
+      header.classList.remove('ac-header-custom');
+    });
 
-// or pass an array with HTMLElements
-const accordions = Array.from(
-  document.querySelectorAll('.accordion-container')
-);
-new Accordion(accordions, {});
-
-// Detach events
-const accordion = new Accordion('.container-first');
-accordion.detachEvents();
+    const header = event.target.closest('.ac-header');
+    if (header) {
+      header.classList.add('ac-header-custom');
+    }
+  });
+});

@@ -2,15 +2,17 @@
   margin: 0;
   padding: 0;
 }
+ul {
+  list-style-type: none;
+}
 
 .accordion-container {
   position: absolute;
   right: 0;
-
-  margin: 32px; /* Відступ від краю, якщо потрібно */
-  max-width: 592px; /* Ширина контейнера, можна змінити за потреби */
+  margin: 32px;
+  max-width: 592px;
   min-height: 240px;
-  background-color: #f1f1f1; /* Колір фону, можна змінити за потреби */
+  background-color: #f1f1f1;
 }
 .ac {
 }
@@ -27,7 +29,8 @@
 .accordion-span-class {
   color: #00b068;
 }
-.ac-header {
+.ac-header-custom {
+  background-color: #bcdfd1;
 }
 .ac-trigger {
   font-family: var(--font-family);
@@ -36,7 +39,6 @@
   line-height: 160%;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--black);
 }
 .ac-panel {
 }
@@ -46,5 +48,4 @@
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.03em;
-  color: var(--black);
 }
