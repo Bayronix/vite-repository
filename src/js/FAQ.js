@@ -5,14 +5,6 @@ new Accordion('.accordion-container', {
   showMultiple: true,
   controlElement: '.faq-question',
   removeButton: true,
-  callbacks: {
-    onOpen: function (section) {
-      console.log('Opened section:', section);
-    },
-    onClose: function (section) {
-      console.log('Closed section:', section);
-    },
-  },
 });
 
 document.querySelectorAll('.ac-trigger').forEach(trigger => {
